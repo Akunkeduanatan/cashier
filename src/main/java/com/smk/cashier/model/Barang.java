@@ -1,4 +1,4 @@
-package com.smk.cashier.model;
+package com.smk.cashier.model
 
 public class Barang  extends Model{
     private String kodeBarang;
