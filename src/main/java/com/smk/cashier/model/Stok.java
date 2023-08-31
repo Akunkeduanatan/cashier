@@ -1,4 +1,4 @@
-package com.smk.cashier.model
+package com.smk.cashier.model;
 
 public class Stok extends Model{
     private int id;
