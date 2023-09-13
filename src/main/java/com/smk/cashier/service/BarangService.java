@@ -8,7 +8,7 @@ import java.util.List;
 import java.util.StringTokenizer;
 
 public class BarangService {
-    FileReader barangServiceReader;s
+    FileReader barangServiceReader;
     FileWriter barangServiceWriter;
 
     List<Barang> barangList =
