@@ -51,9 +51,9 @@ public class StokService {
             StringBuilder sb = new StringBuilder();
             sb.append(stok.getId());
             sb.append("|");
-            sb.append(stok.getKodeBarang());
+            sb.append(stok.getKodeStok());
             sb.append("|");
-            sb.append(stok.getStokBarang());
+            sb.append(stok.getKodeStok());
             try {
                 bufferedWriter.write(sb.toString());
                 if (i < stokList.size() - 1) {
@@ -78,14 +78,16 @@ public class StokService {
             if (id == 0) {
                 stok.setId(Integer.parseInt(st.nextToken()));
             } else if (id == 1) {
-                stok.setKodeBarang(st.nextToken());
+                stok.setKodeStok(st.nextToken());
             } else if (id == 2) {
-                stok.setStokBarang(Integer.parseInt(st.nextToken()));
+                stok.setKodeStok(String.valueOf(Integer.parseInt(st.nextToken())));
             }
             id++;
         }
         return stok;
     }
+
+
 
     public List<Stok> getStokList() {
         readFile();
@@ -99,7 +101,7 @@ public class StokService {
 
     public List<Stok> findByKode(String kode) {
         return stokList.stream()
-                .filter(stok -> stok.getKodeBarang().equals(kode))
+                .filter(stok -> stok.getKodeStok().equals(kode))
                 .toList();
     }
 }
