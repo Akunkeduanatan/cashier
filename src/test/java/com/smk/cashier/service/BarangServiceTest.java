@@ -7,6 +7,7 @@ import org.junit.jupiter.api.Order;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestMethodOrder;
 
+import javax.management.BadAttributeValueExpException;
 import java.util.List;
 import java.util.Optional;
 import java.util.function.Consumer;
@@ -52,6 +53,7 @@ class BarangServiceTest {
         BarangService.getInstance().addBarang(laptopGaming);
 
     }
+    
     @Test
     @Order(5)
     void getDataById() {
@@ -72,5 +74,14 @@ class BarangServiceTest {
                 assertEquals("M0001", barang.getKodeBarang());
             }
         });
+        Optional<Barang> barang3 = barangDao.get(3);
+        barang3.ifPresent(new Consumer<Barang>() {
+            @Override
+            public void accept(Barang barang) {
+                assertEquals(barang.getNamaBarang(), "Laptop Gaming");
+                assertEquals(barang.getKodeBarang(), "LP002");
+            }
+        });
     }
+
 }
